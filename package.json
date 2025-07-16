@@ -13,7 +13,9 @@
     "generate-case-studies": "tsx scripts/generate-case-studies.ts",
     "import-youtube-data": "tsx scripts/import-youtube-data.ts",
     "setup": "node scripts/quick-setup.mjs",
-    "setup:tables": "node scripts/auto-create-tables.mjs"
+    "setup:tables": "node scripts/auto-create-tables.mjs",
+    "setup:final": "node scripts/final-setup.mjs",
+    "setup:complete": "node setup.mjs"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -24,6 +26,7 @@
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.446.0",
     "next": "15.3.5",
+    "pg": "^8.16.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

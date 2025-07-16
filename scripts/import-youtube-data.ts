@@ -50,33 +50,32 @@ interface YouTubeData {
 }
 
 interface CaseStudyData {
-  featuredCaseStudies: Array<{
-    videoId: string;
-    title: string;
-    client: string;
-    industry: string;
-    keywords: string[];
-    searchVolume: number;
-    difficulty: string;
-    description: string;
-    challenge: string;
-    solution: string;
-    results: Array<{
-      metric: string;
-      value: string;
-      impact: string;
-    }>;
-    testimonial: {
-      quote: string;
-      author: string;
-      position: string;
-      company: string;
-    };
-    technologies: string[];
-    deliverables: string[];
-    timeline: string;
-    featuredIn: string[];
-  }>;
+  id: string;
+  video_id: string;
+  slug: string;
+  title: string;
+  client_name: string;
+  category: string;
+  primary_keyword: string;
+  secondary_keywords: string[];
+  long_tail_keywords: string[];
+  meta_title: string;
+  meta_description: string;
+  challenge: string;
+  approach: string;
+  results: string;
+  technical_details: string;
+  key_takeaways: string[];
+  client_testimonial: {
+    text: string;
+    author: string;
+    role: string;
+  };
+  metric_views: string;
+  metric_engagement: string;
+  published_at: string;
+  tags: string[];
+  [key: string]: any; // Allow other fields
 }
 
 // Function to parse ISO 8601 duration to seconds
@@ -129,12 +128,12 @@ async function importData() {
   }
   
   const youtubeData: YouTubeData = JSON.parse(fs.readFileSync(youtubeDataPath, 'utf-8'));
-  const caseStudiesData: CaseStudyData = fs.existsSync(caseStudiesPath) 
+  const caseStudiesArray: CaseStudyData[] = fs.existsSync(caseStudiesPath) 
     ? JSON.parse(fs.readFileSync(caseStudiesPath, 'utf-8'))
-    : { featuredCaseStudies: [] };
+    : [];
   
   console.log(`📊 Found ${youtubeData.playlists.length} playlists with ${youtubeData.totalVideos} videos`);
-  console.log(`📊 Found ${caseStudiesData.featuredCaseStudies.length} case studies\n`);
+  console.log(`📊 Found ${caseStudiesArray.length} case studies\n`);
   
   // Import playlists
   console.log('1. Importing playlists...');
@@ -201,12 +200,12 @@ async function importData() {
   
   // Import case studies and mark featured videos
   console.log('\n3. Importing case studies...');
-  for (const caseStudy of caseStudiesData.featuredCaseStudies) {
+  for (const caseStudy of caseStudiesArray) {
     // First, mark the video as featured
     const { error: videoError } = await supabase
       .from('youtube_videos')
       .update({ is_featured: true })
-      .eq('youtube_video_id', caseStudy.videoId);
+      .eq('youtube_video_id', caseStudy.video_id);
       
     if (videoError) {
       console.error(`❌ Error marking video as featured:`, videoError.message);
@@ -216,19 +215,25 @@ async function importData() {
     const { error } = await supabase
       .from('case_studies')
       .upsert({
-        video_id: caseStudy.videoId,
-        client_name: caseStudy.client,
-        industry: caseStudy.industry,
+        video_id: caseStudy.video_id,
+        client_name: caseStudy.client_name,
+        industry: caseStudy.category,
         challenge: caseStudy.challenge,
-        solution: caseStudy.solution,
-        results: caseStudy.results,
-        testimonial: caseStudy.testimonial,
-        technologies: caseStudy.technologies,
-        deliverables: caseStudy.deliverables,
-        timeline: caseStudy.timeline,
-        keywords: caseStudy.keywords,
-        search_volume: caseStudy.searchVolume,
-        difficulty: caseStudy.difficulty,
+        solution: caseStudy.approach,
+        results: {
+          description: caseStudy.results,
+          metrics: [
+            { metric: 'Views', value: caseStudy.metric_views, impact: 'High' },
+            { metric: 'Engagement', value: caseStudy.metric_engagement, impact: 'High' }
+          ]
+        },
+        testimonial: caseStudy.client_testimonial,
+        technologies: caseStudy.tags || [],
+        deliverables: caseStudy.key_takeaways || [],
+        timeline: '2-4 weeks',
+        keywords: [caseStudy.primary_keyword, ...caseStudy.secondary_keywords],
+        search_volume: 1000, // Default value
+        difficulty: 'Medium', // Default value
         is_featured: true
       }, {
         onConflict: 'video_id'
