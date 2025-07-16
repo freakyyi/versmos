@@ -11,7 +11,7 @@
     "db:seed": "prisma db seed",
     "fetch-youtube": "tsx scripts/fetch-youtube-data.ts",
     "generate-case-studies": "tsx scripts/generate-case-studies.ts",
-    "import-youtube-data": "tsx scripts/import-to-supabase.ts"
+    "import-youtube-data": "tsx scripts/import-youtube-data.ts"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
