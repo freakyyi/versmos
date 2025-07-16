@@ -1,0 +1,177 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Service Categories
+model ServiceCategory {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  description String?
+  icon        String?
+  order       Int       @default(0)
+  services    Service[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Services
+model Service {
+  id             String           @id @default(cuid())
+  slug           String           @unique
+  title          String
+  shortDesc      String
+  description    String           @db.Text
+  features       String[]
+  benefits       String[]
+  process        Json?
+  categoryId     String
+  category       ServiceCategory  @relation(fields: [categoryId], references: [id])
+  portfolioItems PortfolioItem[]
+  order          Int              @default(0)
+  isActive       Boolean          @default(true)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+// Portfolio Items (Videos)
+model PortfolioItem {
+  id              String       @id @default(cuid())
+  title           String
+  description     String?      @db.Text
+  thumbnailUrl    String?
+  videoUrl        String
+  videoType       VideoType    @default(YOUTUBE)
+  duration        String?
+  clientName      String?
+  projectDate     DateTime?
+  tags            String[]
+  serviceId       String?
+  service         Service?     @relation(fields: [serviceId], references: [id])
+  caseStudyId     String?      @unique
+  caseStudy       CaseStudy?
+  featured        Boolean      @default(false)
+  order           Int          @default(0)
+  viewCount       Int          @default(0)
+  isActive        Boolean      @default(true)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+}
+
+// Case Studies
+model CaseStudy {
+  id              String          @id @default(cuid())
+  slug            String          @unique
+  title           String
+  subtitle        String?
+  client          String
+  industry        String?
+  challenge       String          @db.Text
+  solution        String          @db.Text
+  results         Json?
+  testimonial     String?         @db.Text
+  portfolioItemId String          @unique
+  portfolioItem   PortfolioItem   @relation(fields: [portfolioItemId], references: [id])
+  featured        Boolean         @default(false)
+  order           Int             @default(0)
+  isActive        Boolean         @default(true)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+}
+
+// Testimonials
+model Testimonial {
+  id         String   @id @default(cuid())
+  name       String
+  role       String?
+  company    String?
+  content    String   @db.Text
+  rating     Int      @default(5)
+  imageUrl   String?
+  featured   Boolean  @default(false)
+  order      Int      @default(0)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// Client Logos
+model ClientLogo {
+  id        String   @id @default(cuid())
+  name      String
+  logoUrl   String
+  websiteUrl String?
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Team Members
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  bio       String?  @db.Text
+  imageUrl  String?
+  linkedin  String?
+  order     Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Contact Form Submissions
+model ContactSubmission {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  company     String?
+  phone       String?
+  service     String?
+  budget      String?
+  timeline    String?
+  message     String   @db.Text
+  status      ContactStatus @default(NEW)
+  notes       String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Site Settings
+model SiteSettings {
+  id              String   @id @default(cuid())
+  siteName        String   @default("Versmos")
+  tagline         String   @default("Digital Agency That Thrives on Your Success")
+  description     String   @db.Text
+  email           String?
+  phone           String?
+  address         String?
+  socialLinks     Json?
+  seoKeywords     String[]
+  googleAnalytics String?
+  updatedAt       DateTime @updatedAt
+}
+
+enum VideoType {
+  YOUTUBE
+  DAILYMOTION
+  VIMEO
+  CUSTOM
+}
+
+enum ContactStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}

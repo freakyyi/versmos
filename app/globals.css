@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors - Updated color hierarchy */
+  --color-primary: #0D1F23;      /* brand-darkest - main color */
+  --color-primary-hover: #25A3AB; /* brand-cyan - hover/active state */
+  
+  /* Brand Colors */
+  --color-black: #000000;
+  --color-cyan: #25A3AB;
+  --color-darkest: #0D1F23;
+  --color-dark: #132E35;
+  --color-medium-dark: #2D4A53;
+  --color-medium: #69818D;
+  --color-light: #AFB3B7;
+  --color-accent: #5A636A;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-nohemi), system-ui, -apple-system, sans-serif;
+    @apply bg-white text-brand-darkest;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Smooth transitions */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: #25A3AB;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #25A3AB;
+  color: white;
+}
+
+/* Primary button styles */
+.btn-primary {
+  @apply bg-brand-darkest text-white hover:bg-brand-cyan transition-all duration-300;
+}
+
+/* Primary text styles */
+.text-primary {
+  @apply text-brand-darkest hover:text-brand-cyan transition-colors;
+}
+
+/* Hover state utilities */
+.hover-cyan {
+  @apply hover:text-brand-cyan hover:border-brand-cyan transition-all duration-300;
+}
