@@ -2,7 +2,11 @@ import fetch from 'node-fetch';
 import * as fs from 'fs';
 import * as path from 'path';
 
-const API_KEY = process.env.YOUTUBE_API_KEY || 'AIzaSyAAM1u6TdYtbeNJWgY7XZn2GKC7rTQ4d5o';
+const API_KEY = process.env.YOUTUBE_API_KEY;
+if (!API_KEY) {
+  console.error('ERROR: YOUTUBE_API_KEY environment variable is not set');
+  process.exit(1);
+}
 const CHANNEL_HANDLE = 'versmos'; // From @versmos
 
 interface YouTubeChannelResponse {

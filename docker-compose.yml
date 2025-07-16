@@ -6,9 +6,9 @@ services:
     container_name: versmos-db
     restart: unless-stopped
     environment:
-      POSTGRES_USER: versmos
-      POSTGRES_PASSWORD: versmos_dev_2024
-      POSTGRES_DB: versmos_db
+      POSTGRES_USER: ${POSTGRES_USER:-versmos}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      POSTGRES_DB: ${POSTGRES_DB:-versmos_db}
     ports:
       - "5432:5432"
     volumes:
