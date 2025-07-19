@@ -30,7 +30,7 @@ export default function ClientLogosGrid({ logos }: ClientLogosGridProps) {
       <p className="text-sm text-gray-500 mb-8">Trusted by leading brands:</p>
       
       <div className="relative">
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-4 items-center">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-8 gap-3 sm:gap-4 items-center">
           {logos.map((logo, index) => (
             <motion.div
               key={`${logo.name}-${index}`}
@@ -42,7 +42,7 @@ export default function ClientLogosGrid({ logos }: ClientLogosGridProps) {
               {/* Logo Container */}
               <div
                 className={`
-                  relative w-20 h-20 bg-gray-100 flex items-center justify-center
+                  relative w-24 h-24 sm:w-20 sm:h-20 bg-gray-100 flex items-center justify-center
                   overflow-hidden transition-all duration-300 group-hover:scale-110
                   ${index === 2 ? 'hexagon' : shapes[index] || 'rounded-lg'}
                   ${index < logos.length - 1 ? 'hover:bg-gray-200' : ''}
@@ -56,7 +56,7 @@ export default function ClientLogosGrid({ logos }: ClientLogosGridProps) {
                   alt={logo.name}
                   width={60}
                   height={60}
-                  className="w-12 h-12 object-contain filter grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
+                  className="w-14 h-14 sm:w-12 sm:h-12 object-contain filter grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             </motion.div>
@@ -85,7 +85,7 @@ export default function ClientLogosGrid({ logos }: ClientLogosGridProps) {
             </motion.div>
 
             {/* CTA Square */}
-            <div className="relative w-20 h-20 bg-gradient-to-br from-brand-darkest to-brand-dark rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-110 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl">
+            <div className="relative w-24 h-24 sm:w-20 sm:h-20 bg-gradient-to-br from-brand-darkest to-brand-dark rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-110 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl">
               <div className="text-white text-center">
                 <div className="text-2xl font-bold">+</div>
                 <div className="text-xs">You?</div>
@@ -102,8 +102,11 @@ export default function ClientLogosGrid({ logos }: ClientLogosGridProps) {
         </div>
 
         {/* Mobile Scroll Indicator */}
-        <div className="md:hidden mt-4 text-center text-xs text-gray-500">
-          Scroll to see more →
+        <div className="sm:hidden mt-4 text-center text-xs text-gray-500">
+          <div className="flex items-center justify-center gap-1">
+            <span>Swipe to see more</span>
+            <ArrowRight className="w-3 h-3" />
+          </div>
         </div>
       </div>
     </div>

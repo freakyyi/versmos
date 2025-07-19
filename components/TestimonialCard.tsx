@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Twitter, Linkedin, Instagram, Globe, Quote } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Globe } from "lucide-react";
 
 interface TestimonialCardProps {
   name: string;
@@ -38,13 +38,13 @@ export default function TestimonialCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+      className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group max-w-full"
     >
       <div className="flex flex-col lg:flex-row">
         {/* Left Section - Client Info */}
-        <div className="lg:w-1/3 bg-gradient-to-br from-brand-darkest to-brand-dark p-8 text-white flex flex-col items-center justify-center text-center">
+        <div className="lg:w-1/3 bg-gradient-to-br from-brand-darkest to-brand-dark p-6 sm:p-8 text-white flex flex-col items-center justify-center text-center">
           {/* Client Photo */}
-          <div className="relative w-32 h-32 mb-6">
+          <div className="relative w-24 h-24 sm:w-32 sm:h-32 mb-4 sm:mb-6">
             <div className="absolute inset-0 bg-brand-cyan rounded-full opacity-20 blur-xl group-hover:opacity-40 transition-opacity" />
             <Image
               src={image}
@@ -56,9 +56,9 @@ export default function TestimonialCard({
           </div>
 
           {/* Client Info */}
-          <h3 className="text-xl font-bold mb-1">{name}</h3>
-          <p className="text-sm text-brand-cyan mb-1">{position}</p>
-          <p className="text-sm text-white/80 mb-4">{company}</p>
+          <h3 className="text-lg sm:text-xl font-bold mb-1">{name}</h3>
+          <p className="text-xs sm:text-sm text-brand-cyan mb-1">{position}</p>
+          <p className="text-xs sm:text-sm text-white/80 mb-4">{company}</p>
 
           {/* Company Logo */}
           {companyLogo && (
@@ -121,9 +121,13 @@ export default function TestimonialCard({
         </div>
 
         {/* Right Section - Testimonial */}
-        <div className="lg:w-2/3 p-8 lg:p-12 relative">
+        <div className="lg:w-2/3 p-6 sm:p-8 lg:p-12 relative">
           {/* Quote Icon */}
-          <Quote className="absolute top-8 right-8 w-16 h-16 text-brand-darkest/10" />
+          <div className="absolute top-6 right-6 sm:top-8 sm:right-8 w-12 h-12 sm:w-16 sm:h-16 text-brand-darkest/10">
+            <svg className="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
 
           {/* Rating */}
           {rating && (
@@ -142,8 +146,8 @@ export default function TestimonialCard({
           )}
 
           {/* Testimonial Text */}
-          <blockquote className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-8 relative z-10">
-            "{testimonial}"
+          <blockquote className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 sm:mb-8 relative z-10">
+            &ldquo;{testimonial}&rdquo;
           </blockquote>
 
           {/* Project/Service Tag */}

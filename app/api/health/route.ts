@@ -6,7 +6,7 @@ export async function GET() {
     const supabase = await createServerSupabaseClient()
     
     // Test database connection
-    const { count, error } = await supabase
+    const { error } = await supabase
       .from('youtube_playlists')
       .select('*', { count: 'exact', head: true })
     

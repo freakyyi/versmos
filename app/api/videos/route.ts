@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
     query = query.range(from, to)
     
     // Execute query
-    const { data, error, count } = await query
+    const { data, error } = await query
     
     if (error) {
       return NextResponse.json(

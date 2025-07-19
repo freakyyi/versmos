@@ -191,13 +191,16 @@ export async function GET() {
     ];
     
     const results = {
-      tablesChecked: [] as any[],
+      tablesChecked: [] as { table: string; exists: boolean; error?: string }[],
       tablesExist: [] as string[],
       tablesMissing: [] as string[],
       success: false,
       message: '',
       sqlGenerated: false
     };
+    
+    // Declare sqlContent at function scope
+    let sqlContent = '';
     
     // Check each table
     for (const table of tables) {
@@ -214,9 +217,9 @@ export async function GET() {
           results.tablesExist.push(table);
           results.tablesChecked.push({ table, exists: true });
         }
-      } catch (err: any) {
+      } catch (err) {
         results.tablesMissing.push(table);
-        results.tablesChecked.push({ table, exists: false, error: err.message });
+        results.tablesChecked.push({ table, exists: false, error: err instanceof Error ? err.message : 'Unknown error' });
       }
     }
     
@@ -231,7 +234,7 @@ export async function GET() {
         ...rlsStatements
       ];
       
-      const sqlContent = allStatements.join(';\n\n') + ';';
+      sqlContent = allStatements.join(';\n\n') + ';';
       
       // Write SQL to public directory so it can be downloaded
       const fs = await import('fs');
@@ -378,10 +381,10 @@ export async function GET() {
       },
     });
     
-  } catch (error: any) {
+  } catch (error) {
     return NextResponse.json({ 
       error: 'Setup failed', 
-      message: error.message 
+      message: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 });
   }
 }

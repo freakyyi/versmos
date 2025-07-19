@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Play, ArrowRight, CheckCircle, Star, Users, Zap, Clock, Award, Palette, Megaphone, Film, Sparkles, TrendingUp, Heart, Shield, Headphones } from "lucide-react";
+import { ArrowRight, CheckCircle, Star, Users, Zap, Clock, Award, Palette, Megaphone, Film, Sparkles, Heart, Shield, Headphones, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import TestimonialCard from "@/components/TestimonialCard";
@@ -152,32 +152,6 @@ export default function Home() {
     { name: "Real Estate", count: 6 },
   ];
 
-  const recentProjects = [
-    {
-      title: "AI Voice Generator Launch",
-      client: "TechStart Inc.",
-      category: "Product Video",
-      thumbnail: "/api/placeholder/400/300",
-    },
-    {
-      title: "Real Estate Virtual Tour",
-      client: "Prime Properties",
-      category: "Real Estate",
-      thumbnail: "/api/placeholder/400/300",
-    },
-    {
-      title: "Fitness App Explainer",
-      client: "FitLife Pro",
-      category: "Explainer Video",
-      thumbnail: "/api/placeholder/400/300",
-    },
-    {
-      title: "Restaurant Social Campaign",
-      client: "Gourmet Delights",
-      category: "Social Media",
-      thumbnail: "/api/placeholder/400/300",
-    },
-  ];
 
   const faqs = [
     {
@@ -186,7 +160,7 @@ export default function Home() {
     },
     {
       question: "What is your revision policy?",
-      answer: "We offer unlimited revisions to ensure you're 100% satisfied with the final product. Our goal is to bring your vision to life exactly as you imagined it.",
+      answer: "We offer unlimited revisions to ensure you&#39;re 100% satisfied with the final product. Our goal is to bring your vision to life exactly as you imagined it.",
     },
     {
       question: "Do you provide voiceover services?",
@@ -194,7 +168,7 @@ export default function Home() {
     },
     {
       question: "What formats do you deliver?",
-      answer: "We deliver in all major formats including MP4, MOV, AVI, and more. We'll also optimize your video for specific platforms like YouTube, Instagram, or your website.",
+      answer: "We deliver in all major formats including MP4, MOV, AVI, and more. We&#39;ll also optimize your video for specific platforms like YouTube, Instagram, or your website.",
     },
   ];
 
@@ -212,12 +186,12 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="space-y-8 max-w-2xl"
               >
-                <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
                   Video Animation
                   <span className="text-brand-cyan block">Company</span>
                 </h1>
                 
-                <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed">
                   From 2D animated explainers to 3D videos, Versmos creates award-winning 
                   animations for businesses that turn browsers into true believers.
                 </p>
@@ -257,13 +231,13 @@ export default function Home() {
                 <div className="lg:ml-8 lg:mr-0">
                   <div className="relative aspect-video">
                     <YouTubeEmbed
-                      videoId="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                      title="Versmos Showreel 2024"
+                      videoId="Ej3ez3U0czk"
+                      title="Logo Animation Portfolio - Versmos Studios"
                       className="shadow-2xl rounded-xl lg:rounded-l-2xl lg:rounded-r-none"
                     />
-                    <div className="absolute -bottom-6 left-6 bg-brand-cyan text-white px-8 py-4 rounded-xl shadow-xl z-10">
-                      <p className="font-bold text-lg">2024 Showreel</p>
-                      <p className="text-sm opacity-90">Watch our best work • 2 mins</p>
+                    <div className="absolute -bottom-4 sm:-bottom-6 left-4 sm:left-6 bg-brand-cyan text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl z-10">
+                      <p className="font-bold text-base sm:text-lg">Portfolio Showreel</p>
+                      <p className="text-xs sm:text-sm opacity-90">Logo Animations • 1 min</p>
                     </div>
                   </div>
                 </div>
@@ -282,24 +256,24 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                 Digital Agency That Thrives on Your Success
               </h2>
               <p className="text-lg text-gray-600 mb-6">
                 If you are looking for an agency to help you create a remarkable presence online, 
-                you&apos;ve come to the right place. We can help you take your business to the next level.
+                you&#39;ve come to the right place. We can help you take your business to the next level.
               </p>
               <p className="text-lg text-gray-600 mb-8">
                 Versmos = Versatility + Motion. We combine creative storytelling with cutting-edge 
                 technology to deliver videos that not only look amazing but also drive real results 
                 for your business.
               </p>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="flex items-start gap-3">
                   <Shield className="w-6 h-6 text-brand-cyan flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">100% Satisfaction</h4>
-                    <p className="text-sm text-gray-600">Unlimited revisions until you&apos;re happy</p>
+                    <p className="text-sm text-gray-600">Unlimited revisions until you&#39;re happy</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -366,10 +340,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               We offer a comprehensive range of video production services to bring your vision to life
             </p>
           </motion.div>
@@ -412,17 +386,17 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Our Process
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               A streamlined approach to deliver exceptional results every time
             </p>
           </motion.div>
 
           <div className="relative">
-            {/* Process Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 hidden lg:block"></div>
+            {/* Process Timeline Line - Mobile and Desktop */}
+            <div className="absolute left-8 lg:left-1/2 transform lg:-translate-x-1/2 h-full w-0.5 bg-gray-300"></div>
             
             <div className="space-y-12">
               {process.map((step, index) => (
@@ -432,28 +406,28 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`flex items-center gap-8 ${
+                  className={`flex flex-col lg:flex-row items-center gap-4 lg:gap-8 ${
                     index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
                   }`}
                 >
-                  <div className="flex-1">
-                    <div className={`bg-white p-8 rounded-xl shadow-lg ${
+                  <div className="flex-1 w-full lg:w-auto">
+                    <div className={`bg-white p-6 lg:p-8 rounded-xl shadow-lg ml-12 lg:ml-0 ${
                       index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'
                     }`}>
                       <div className={`flex items-center gap-4 mb-4 ${
                         index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'
                       }`}>
-                        <step.icon className="w-8 h-8 text-brand-cyan" />
-                        <span className="text-4xl font-bold text-gray-200">{step.step}</span>
+                        <step.icon className="w-6 h-6 lg:w-8 lg:h-8 text-brand-cyan" />
+                        <span className="text-3xl lg:text-4xl font-bold text-gray-200">{step.step}</span>
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600">{step.description}</p>
+                      <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                      <p className="text-sm lg:text-base text-gray-600">{step.description}</p>
                     </div>
                   </div>
                   
-                  {/* Center Circle */}
-                  <div className="hidden lg:flex items-center justify-center">
-                    <div className="w-12 h-12 bg-brand-darkest rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                  {/* Center Circle - Mobile and Desktop */}
+                  <div className="absolute left-8 lg:relative lg:left-auto flex items-center justify-center">
+                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-brand-darkest rounded-full flex items-center justify-center text-white text-sm lg:text-base font-bold shadow-lg">
                       {index + 1}
                     </div>
                   </div>
@@ -475,7 +449,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Recent Projects
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
@@ -527,9 +501,9 @@ export default function Home() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center text-white"
               >
-                <stat.icon className="w-12 h-12 mx-auto mb-4 opacity-80" />
-                <div className="text-5xl lg:text-6xl font-bold mb-2">{stat.number}</div>
-                <div className="text-lg opacity-90">{stat.label}</div>
+                <stat.icon className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-4 opacity-80" />
+                <div className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-2">{stat.number}</div>
+                <div className="text-base sm:text-lg opacity-90">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -545,10 +519,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Why Choose Versmos?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               We combine creativity, technology, and strategy to deliver exceptional results
             </p>
           </motion.div>
@@ -649,11 +623,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Don&apos;t just take our word for it - hear from our satisfied clients
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Don&#39;t just take our word for it - hear from our satisfied clients
             </p>
           </motion.div>
 
@@ -678,11 +652,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Got questions? We&apos;ve got answers
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              Got questions? We&#39;ve got answers
             </p>
           </motion.div>
 
@@ -717,11 +691,11 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Bring Your Vision to Life?
             </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Let&apos;s create something amazing together. Get in touch with us today and let&apos;s discuss your project.
+            <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+              Let&#39;s create something amazing together. Get in touch with us today and let&#39;s discuss your project.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -742,60 +716,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">VERSMOS</h3>
-              <p className="text-gray-400 mb-4">
-                Digital Agency That Thrives on Your Success
-              </p>
-              <p className="text-gray-400 text-sm">
-                Versmos = Versatility + Motion
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/services/video-editing" className="hover:text-white transition-colors">Video Editing & VFX</Link></li>
-                <li><Link href="/services/motion-graphics" className="hover:text-white transition-colors">Motion Graphics</Link></li>
-                <li><Link href="/services/2d-3d-animation" className="hover:text-white transition-colors">2D/3D Animation</Link></li>
-                <li><Link href="/services/social-media" className="hover:text-white transition-colors">Social Media Content</Link></li>
-                <li><Link href="/services/product-videos" className="hover:text-white transition-colors">Product Videos</Link></li>
-                <li><Link href="/services/testimonial-videos" className="hover:text-white transition-colors">Testimonial Videos</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                <li><Link href="/portfolio" className="hover:text-white transition-colors">Portfolio</Link></li>
-                <li><Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
-                <li><Link href="/testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
-                <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400 mb-4">
-                Plaza No. 9, Shop No. 4, 1st Floor<br />
-                Business District, Near New Head Office<br />
-                Phase 8, Bahria Town<br />
-                Rawalpindi, 46000
-              </p>
-              <p className="text-gray-400">
-                <strong>Email:</strong> info@versmos.com<br />
-                <strong>Phone:</strong> +92 XXX XXXXXXX
-              </p>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Versmos. All rights reserved. | <Link href="/privacy" className="hover:text-white">Privacy Policy</Link> | <Link href="/terms" className="hover:text-white">Terms of Service</Link></p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

@@ -135,10 +135,10 @@
 - [x] Implement error handling
 - [x] Add pagination and filtering
 
-### 3.2 Dynamic Pages 🔄 (In Progress)
+### 3.2 Dynamic Pages ✅
 - [x] Create FeaturedVideos component for homepage
 - [x] Update homepage to use dynamic featured videos
-- [ ] Make portfolio page fetch from Supabase
+- [x] Make portfolio page fetch from Supabase
 - [ ] Create dynamic case study pages
 - [ ] Make services page dynamic
 

@@ -54,35 +54,3 @@ export async function GET(request: NextRequest) {
     )
   }
 }
-
-// Get single case study by slug
-export async function GET_BY_SLUG(slug: string) {
-  try {
-    const supabase = await createServerSupabaseClient()
-    
-    const { data, error } = await supabase
-      .from('case_studies')
-      .select(`
-        *,
-        video:youtube_videos(
-          *,
-          playlist:youtube_playlists(*)
-        )
-      `)
-      .eq('slug', slug)
-      .eq('status', 'published')
-      .single()
-    
-    if (error) {
-      return { data: null, error }
-    }
-    
-    return { data, error: null }
-    
-  } catch (error) {
-    return { 
-      data: null, 
-      error: error instanceof Error ? error : new Error('Unknown error') 
-    }
-  }
-}

@@ -7,11 +7,11 @@ import YouTubeEmbed from "./YouTubeEmbed";
 interface VideoModalProps {
   isOpen: boolean;
   onClose: () => void;
-  videoUrl: string;
+  videoId: string;
   title: string;
 }
 
-export default function VideoModal({ isOpen, onClose, videoUrl, title }: VideoModalProps) {
+export default function VideoModal({ isOpen, onClose, videoId, title }: VideoModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -46,7 +46,7 @@ export default function VideoModal({ isOpen, onClose, videoUrl, title }: VideoMo
         
         <div className="relative">
           <YouTubeEmbed
-            videoId={videoUrl}
+            videoId={videoId}
             title={title}
             autoplay={true}
             className="shadow-2xl"

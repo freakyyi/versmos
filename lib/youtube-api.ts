@@ -98,7 +98,7 @@ export const sampleVideos: YouTubeVideo[] = [
 ];
 
 // Function to fetch playlists (placeholder for actual API implementation)
-export async function fetchYouTubePlaylists(channelId: string): Promise<YouTubePlaylist[]> {
+export async function fetchYouTubePlaylists(): Promise<YouTubePlaylist[]> {
   // In production, implement actual YouTube API call here
   // const response = await fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet,contentDetails&channelId=${channelId}&key=${API_KEY}`);
   return samplePlaylists;

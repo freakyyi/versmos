@@ -120,7 +120,7 @@ function calculateEngagement(video: any): string {
 }
 
 function generateTestimonial(video: any, category: string): string {
-  const testimonials = {
+  const testimonials: Record<string, string> = {
     'video-editing': "Versmos delivered exceptional video editing that perfectly captured our brand message. The attention to detail and professional finish exceeded our expectations.",
     'product-videos': "The product video created by Versmos significantly boosted our conversion rates. Their understanding of visual storytelling is outstanding.",
     'brand-animation': "Our logo animation by Versmos gave our brand a professional edge. It's exactly what we needed to stand out in the market.",
@@ -131,7 +131,7 @@ function generateTestimonial(video: any, category: string): string {
 }
 
 function generateChallenge(video: any, category: string): string {
-  const challenges = {
+  const challenges: Record<string, string> = {
     'video-editing': `The client needed to transform raw footage into a compelling narrative that would resonate with their target audience while maintaining brand consistency across all touchpoints.`,
     'product-videos': `Creating a product video that not only showcases features but also connects emotionally with potential customers and drives conversions in a competitive market.`,
     'brand-animation': `Developing a memorable logo animation that captures the essence of the brand while being versatile enough for use across multiple platforms and contexts.`,
