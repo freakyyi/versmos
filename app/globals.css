@@ -35,8 +35,28 @@
     overflow-x: hidden;
   }
   
-  /* Headings use Manrope with heavier weight */
-  h1, h2, h3, h4, h5, h6, .font-heading {
+  /* Headings use Manrope with gradually heavier weights */
+  h1 {
+    font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+    @apply font-extrabold; /* 800 */
+  }
+  
+  h2 {
+    font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+    @apply font-bold; /* 700 */
+  }
+  
+  h3 {
+    font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+    @apply font-semibold; /* 600 */
+  }
+  
+  h4, h5, h6 {
+    font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+    @apply font-medium; /* 500 */
+  }
+  
+  .font-heading {
     font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
     @apply font-semibold;
   }
@@ -140,6 +160,7 @@ a {
 /* Font utilities */
 .font-body {
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  @apply font-normal; /* 400 */
 }
 
 .font-heading {
@@ -148,5 +169,34 @@ a {
 
 .font-display {
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
-  @apply font-bold;
+  @apply font-extrabold; /* 800 */
+}
+
+/* Font weight utilities for Manrope */
+.font-weight-200 {
+  font-weight: 200;
+}
+
+.font-weight-300 {
+  font-weight: 300;
+}
+
+.font-weight-400 {
+  font-weight: 400;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+.font-weight-600 {
+  font-weight: 600;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+.font-weight-800 {
+  font-weight: 800;
 }

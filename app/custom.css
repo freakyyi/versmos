@@ -10,10 +10,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom Font Styles */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-manrope), system-ui, sans-serif;
-}
+/* Custom Font Styles - Already handled in globals.css */
 
 /* Client Logo Hover Effects */
 .client-logo {
