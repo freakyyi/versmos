@@ -47,8 +47,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['var(--font-plus-jakarta)', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['var(--font-poppins)', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['var(--font-manrope)', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['var(--font-manrope)', 'system-ui', '-apple-system', 'sans-serif'],
       },
       height: {
         header: '84px',
