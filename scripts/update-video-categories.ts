@@ -49,7 +49,7 @@ async function updateVideoCategories() {
     // Update each video's category based on its playlist
     const updates = [];
     for (const video of videos || []) {
-      const playlistTitle = video.youtube_playlists?.title;
+      const playlistTitle = (video.youtube_playlists as any)?.title;
       if (playlistTitle) {
         const newCategory = playlistCategoryMap[playlistTitle] || 'video-editing-vfx';
         

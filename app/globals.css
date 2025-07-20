@@ -30,9 +30,15 @@
   }
 
   body {
-    font-family: var(--font-nohemi), system-ui, -apple-system, sans-serif;
+    font-family: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
     @apply bg-white text-brand-darkest;
     overflow-x: hidden;
+  }
+  
+  /* Headings use Poppins */
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+    @apply font-semibold;
   }
 }
 
@@ -129,4 +135,17 @@ a {
 /* Hover state utilities */
 .hover-cyan {
   @apply hover:text-brand-cyan hover:border-brand-cyan transition-all duration-300;
+}
+
+/* Font utilities */
+.font-body {
+  font-family: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-nohemi), system-ui, -apple-system, sans-serif;
 }

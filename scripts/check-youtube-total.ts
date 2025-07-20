@@ -32,7 +32,7 @@ async function checkYouTubeTotal() {
     // Get all playlists
     const playlistsResponse = await youtube.playlists.list({
       part: ['snippet', 'contentDetails'],
-      channelId: channel.id,
+      channelId: channel.id!,
       maxResults: 50
     });
 
@@ -49,7 +49,7 @@ async function checkYouTubeTotal() {
       let playlistVideoCount = 0;
 
       do {
-        const playlistItemsResponse = await youtube.playlistItems.list({
+        const playlistItemsResponse: any = await youtube.playlistItems.list({
           part: ['contentDetails'],
           playlistId: playlist.id!,
           maxResults: 50,
@@ -81,7 +81,7 @@ async function checkYouTubeTotal() {
       const uploadedVideoIds = new Set<string>();
 
       do {
-        const uploadsResponse = await youtube.playlistItems.list({
+        const uploadsResponse: any = await youtube.playlistItems.list({
           part: ['contentDetails'],
           playlistId: uploadsPlaylistId,
           maxResults: 50,

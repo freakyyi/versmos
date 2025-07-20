@@ -62,7 +62,7 @@ async function fixVideoCategories() {
     let updateCount = 0;
     
     for (const video of videos || []) {
-      const playlistTitle = video.youtube_playlists?.title;
+      const playlistTitle = (video.youtube_playlists as any)?.title;
       if (playlistTitle) {
         const newCategory = playlistCategoryMap[playlistTitle];
         

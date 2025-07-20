@@ -47,7 +47,9 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['var(--font-nohemi)', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['var(--font-plus-jakarta)', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['var(--font-poppins)', 'system-ui', '-apple-system', 'sans-serif'],
+        nohemi: ['var(--font-nohemi)', 'system-ui', '-apple-system', 'sans-serif'],
       },
       height: {
         header: '84px',

@@ -63,7 +63,7 @@ async function fetchMissingVideos() {
     const missingVideos: any[] = [];
 
     do {
-      const uploadsResponse = await youtube.playlistItems.list({
+      const uploadsResponse: any = await youtube.playlistItems.list({
         part: ['contentDetails', 'snippet'],
         playlistId: uploadsPlaylistId,
         maxResults: 50,
