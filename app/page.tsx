@@ -8,6 +8,7 @@ import YouTubeEmbed from "@/components/YouTubeEmbed";
 import TestimonialCard from "@/components/TestimonialCard";
 import ClientLogosGrid from "@/components/ClientLogosGrid";
 import FeaturedVideos from "@/components/FeaturedVideos";
+import { ServicesGridAceternity } from "@/components/ServicesGridAceternity";
 
 export default function Home() {
   const clientLogos = [
@@ -18,33 +19,6 @@ export default function Home() {
     { name: "gym armour", src: "/assets/gym-armour-150x150.png" },
     { name: "CloudShift", src: "/assets/CloudShift-150x150.png" },
     { name: "About Cars", src: "/assets/About-Cars-150x150.png" },
-  ];
-
-  const services = [
-    {
-      title: "Video Editing & VFX",
-      description: "Professional video editing with stunning visual effects that captivate your audience",
-      icon: "🎬",
-      features: ["Color Grading", "Motion Tracking", "Green Screen", "3D Compositing"],
-    },
-    {
-      title: "Motion Graphics",
-      description: "Eye-catching animations that bring your ideas to life with dynamic movement",
-      icon: "✨",
-      features: ["Logo Animation", "Infographics", "Title Sequences", "Transitions"],
-    },
-    {
-      title: "2D/3D Animation",
-      description: "Custom animations for any purpose or platform, from simple to complex",
-      icon: "🎨",
-      features: ["Character Animation", "Product Demos", "Explainer Videos", "3D Modeling"],
-    },
-    {
-      title: "Social Media Content",
-      description: "Engaging content optimized for all social platforms to maximize reach",
-      icon: "📱",
-      features: ["Instagram Reels", "YouTube Shorts", "TikTok Videos", "Stories"],
-    },
   ];
 
   const stats = [
@@ -348,31 +322,8 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group p-8 bg-gray-50 rounded-xl hover:bg-white hover:shadow-xl transition-all duration-300"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-cyan transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+          <div className="w-full">
+            <ServicesGridAceternity />
           </div>
         </div>
       </section>

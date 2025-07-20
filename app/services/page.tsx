@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { ServicesGrid } from "@/components/ServicesGrid";
+import { ServicesGridAceternity } from "@/components/ServicesGridAceternity";
 
 export default function ServicesPage() {
   return (
@@ -29,8 +29,8 @@ export default function ServicesPage() {
 
       {/* Services Grid */}
       <section className="py-20">
-        <div className="container mx-auto px-6 lg:px-12">
-          <ServicesGrid />
+        <div className="w-full">
+          <ServicesGridAceternity />
         </div>
       </section>
 
