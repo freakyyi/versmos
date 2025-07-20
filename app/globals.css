@@ -147,5 +147,6 @@ a {
 }
 
 .font-display {
-  font-family: var(--font-nohemi), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  @apply font-bold;
 }

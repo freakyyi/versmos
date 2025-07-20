@@ -9,7 +9,7 @@ A modern, high-performance website for Versmos Studios built with Next.js 14, Ty
 - **SEO Optimized**: Case studies with keyword targeting and schema markup
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Performance Focused**: Next.js 14 with App Router and optimized images
-- **Custom Typography**: Nohemi font integration
+- **Custom Typography**: Poppins for headings, Plus Jakarta Sans for body text
 - **Animation**: Smooth transitions with Framer Motion
 
 ## 🛠️ Tech Stack
@@ -131,7 +131,8 @@ Add these in Vercel dashboard:
 - Supporting colors defined in `tailwind.config.ts`
 
 ### Typography
-- Custom Font: Nohemi
+- Headings: Poppins (Google Font)
+- Body Text: Plus Jakarta Sans (Google Font)
 - Responsive type scale
 - Optimized for readability
 
