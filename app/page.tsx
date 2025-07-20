@@ -221,7 +221,7 @@ export default function Home() {
             </div>
             
             {/* Right Video Section - Full Bleed */}
-            <div className="w-full lg:w-[60%] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 px-6 lg:px-0">
+            <div className="w-full lg:w-[60%] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 px-4 sm:px-6 lg:px-0">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -248,15 +248,15 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 fhd:px-20 max-w-10xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6">
                 Digital Agency That Thrives on Your Success
               </h2>
               <p className="text-lg text-gray-600 mb-6">

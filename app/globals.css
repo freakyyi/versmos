@@ -38,7 +38,57 @@
 
 @layer components {
   .container {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Responsive container for high-res displays */
+  @media (min-width: 1280px) {
+    .container {
+      @apply px-12;
+      max-width: 1280px;
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    .container {
+      @apply px-16;
+      max-width: 1536px;
+    }
+  }
+  
+  @media (min-width: 1920px) {
+    .container {
+      @apply px-20;
+      max-width: 1800px;
+    }
+  }
+  
+  @media (min-width: 2048px) {
+    .container {
+      @apply px-24;
+      max-width: 1920px;
+    }
+  }
+  
+  /* Responsive text utilities */
+  .heading-responsive-xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+  }
+  
+  .heading-responsive-lg {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  .heading-responsive-md {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl;
+  }
+  
+  .text-responsive-base {
+    @apply text-sm sm:text-base md:text-lg lg:text-lg xl:text-xl;
   }
 }
 

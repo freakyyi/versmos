@@ -79,11 +79,23 @@ export default function PortfolioPage() {
           categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
         });
 
+        // Category display names
+        const categoryDisplayNames: Record<string, string> = {
+          'all': 'All Works',
+          'video-editing-vfx': 'Video Editing & VFX',
+          'social-media-designs': 'Social Media Designs',
+          'motion-graphics': 'Motion Graphics',
+          'product-videos': 'Product Videos',
+          'testimonial-videos': 'Testimonial Videos',
+          '2d-animation': '2D Animation',
+          '3d-animation': '3D Animation'
+        };
+
         // Convert to categories array
         const categoriesArray: Category[] = Array.from(categoryMap.entries())
           .map(([name, count]) => ({
             id: name.toLowerCase().replace(/\s+/g, '-'),
-            name: name === 'all' ? 'All Works' : name,
+            name: categoryDisplayNames[name] || name,
             count
           }))
           .sort((a, b) => {
@@ -145,7 +157,7 @@ export default function PortfolioPage() {
   return (
     <>
       <main className="min-h-screen pt-40 pb-16">
-        <div className="container mx-auto px-6 lg:px-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 fhd:px-20 max-w-10xl">
           {/* Page Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -219,7 +231,7 @@ export default function PortfolioPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 fhd:grid-cols-5 2k:grid-cols-6 gap-4 sm:gap-6 lg:gap-8"
             >
               {filteredVideos.map((video, index) => (
                 <motion.div

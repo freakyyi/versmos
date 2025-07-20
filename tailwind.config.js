@@ -7,6 +7,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        // Standard breakpoints
+        'xs': '475px',
+        // Override default breakpoints for better control
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        // Custom breakpoints for high-res displays
+        'fhd': '1920px',  // Full HD (1080p)
+        '2k': '2048px',   // 2K displays
+        'qhd': '2560px',  // Quad HD (1440p)
+        '4k': '3840px',   // 4K displays
+      },
       colors: {
         orange: {
           50: '#fff7ed',
@@ -44,7 +59,30 @@ module.exports = {
         header: '99999',
       },
       maxWidth: {
+        '7xl': '1280px',
         '8xl': '1440px',
+        '9xl': '1600px',
+        '10xl': '1920px',
+      },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '3rem',
+          xl: '4rem',
+          '2xl': '5rem',
+          'fhd': '6rem',
+        },
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1536px',
+          'fhd': '1920px',
+          '2k': '2048px',
+        }
       }
     },
   },
