@@ -6,6 +6,7 @@ import { ArrowRight, CheckCircle, Star, Users, Zap, Clock, Award, Palette, Megap
 import Image from "next/image";
 import YouTubeEmbed from "@/components/YouTubeEmbed";
 import TestimonialCard from "@/components/TestimonialCard";
+import TestimonialCardMotionCue from "@/components/TestimonialCardMotionCue";
 import ClientLogosGrid from "@/components/ClientLogosGrid";
 import FeaturedVideos from "@/components/FeaturedVideos";
 import { ServicesGridAceternity } from "@/components/ServicesGridAceternity";
@@ -13,12 +14,9 @@ import { ServicesGridAceternity } from "@/components/ServicesGridAceternity";
 export default function Home() {
   const clientLogos = [
     { name: "EON", src: "/assets/EON-150x150.png" },
-    { name: "Airgearpro", src: "/assets/Airgearpro-150x150.png" },
-    { name: "Comex soft", src: "/assets/Comex-soft-150x150.png" },
     { name: "SENPI", src: "/assets/SENPI-150x150.png" },
     { name: "gym armour", src: "/assets/gym-armour-150x150.png" },
-    { name: "CloudShift", src: "/assets/CloudShift-150x150.png" },
-    { name: "About Cars", src: "/assets/About-Cars-150x150.png" },
+    { name: "Airgearpro", src: "/assets/Airgearpro-150x150.png" },
   ];
 
   const stats = [
@@ -84,38 +82,6 @@ export default function Home() {
     },
   ];
 
-  const process = [
-    {
-      step: "01",
-      title: "Discovery & Consultation",
-      description: "We start by understanding your vision, goals, and target audience to create a tailored strategy.",
-      icon: Megaphone,
-    },
-    {
-      step: "02",
-      title: "Creative Development",
-      description: "Our team develops concepts, storyboards, and scripts that align with your brand message.",
-      icon: Palette,
-    },
-    {
-      step: "03",
-      title: "Production & Animation",
-      description: "We bring your vision to life with cutting-edge tools and techniques for stunning results.",
-      icon: Film,
-    },
-    {
-      step: "04",
-      title: "Review & Refinement",
-      description: "We work closely with you to ensure every detail is perfect, with unlimited revisions.",
-      icon: CheckCircle,
-    },
-    {
-      step: "05",
-      title: "Final Delivery",
-      description: "Receive your video in all required formats, optimized for your chosen platforms.",
-      icon: Sparkles,
-    },
-  ];
 
   const portfolioCategories = [
     { name: "All", count: 29 },
@@ -149,31 +115,31 @@ export default function Home() {
   return (
     <div className="w-full overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-white pt-[80px] overflow-hidden">
-        <div className="w-full relative">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
-            {/* Left Content - Full Width */}
-            <div className="w-full lg:w-[55%] px-6 lg:pl-[5%] xl:pl-[8%] lg:pr-12 z-10">
+      <section className="relative min-h-[636px] flex items-center bg-white pt-[95px] overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-12 2k:px-24">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* Left Content */}
+            <div className="w-full lg:w-1/2 z-10">
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="space-y-8 max-w-2xl"
+                className="space-y-6"
               >
-                <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
                   Video Animation
                   <span className="text-brand-cyan block">Company</span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
                   From 2D animated explainers to 3D videos, Versmos creates award-winning 
                   animations for businesses that turn browsers into true believers.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-brand-darkest text-white font-semibold rounded-lg hover:bg-brand-cyan transform hover:scale-105 transition-all duration-300 shadow-lg"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-brand-darkest text-white font-semibold rounded-sm hover:bg-brand-cyan transition-all duration-300 shadow-lg"
                   >
                     Create Your Video
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -181,38 +147,49 @@ export default function Home() {
                   
                   <Link
                     href="/portfolio"
-                    className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-lg hover:border-brand-cyan hover:text-brand-cyan transition-all duration-300"
+                    className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-sm hover:border-brand-cyan hover:text-brand-cyan transition-all duration-300"
                   >
                     View Portfolio
                   </Link>
                 </div>
 
-                {/* Client Logos Grid */}
-                <div className="pt-12">
-                  <ClientLogosGrid logos={clientLogos} />
+                {/* These companies clicked the button */}
+                <div className="pt-8">
+                  <p className="text-sm text-gray-500 mb-4 font-medium">These companies clicked the button:</p>
+                  <div className="flex items-center gap-8">
+                    {clientLogos.slice(0, 4).map((logo) => (
+                      <div key={logo.name} className="opacity-60 hover:opacity-100 transition-opacity">
+                        <Image
+                          src={logo.src}
+                          alt={logo.name}
+                          width={100}
+                          height={50}
+                          className="h-10 w-auto object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             </div>
             
-            {/* Right Video Section - Full Bleed */}
-            <div className="w-full lg:w-[60%] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 px-4 sm:px-6 lg:px-0">
+            {/* Right Video Section */}
+            <div className="w-full lg:w-1/2 px-4 sm:px-6 lg:px-0">
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="relative"
               >
-                <div className="lg:ml-8 lg:mr-0">
-                  <div className="relative aspect-video">
-                    <YouTubeEmbed
-                      videoId="Ej3ez3U0czk"
-                      title="Logo Animation Portfolio - Versmos Studios"
-                      className="shadow-2xl rounded-xl lg:rounded-l-2xl lg:rounded-r-none"
-                    />
-                    <div className="absolute -bottom-4 sm:-bottom-6 left-4 sm:left-6 bg-brand-cyan text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl shadow-xl z-10">
-                      <p className="font-bold text-base sm:text-lg">Portfolio Showreel</p>
-                      <p className="text-xs sm:text-sm opacity-90">Logo Animations • 1 min</p>
-                    </div>
+                <div className="relative aspect-video">
+                  <YouTubeEmbed
+                    videoId="Ej3ez3U0czk"
+                    title="Logo Animation Portfolio - Versmos Studios"
+                    className="shadow-2xl rounded-lg"
+                  />
+                  <div className="absolute -bottom-4 sm:-bottom-6 left-4 sm:left-6 bg-brand-cyan text-white px-4 sm:px-8 py-3 sm:py-4 rounded-lg shadow-xl z-10">
+                    <p className="font-bold text-base sm:text-lg">Portfolio Showreel</p>
+                    <p className="text-xs sm:text-sm opacity-90">Logo Animations • 1 min</p>
                   </div>
                 </div>
               </motion.div>
@@ -328,9 +305,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section */}
+
+      {/* Testimonials Section - Moved from bottom */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-6 lg:px-12">
+        <div className="container mx-auto px-6 lg:px-12 2k:px-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -338,55 +316,33 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Our Process
+              What Our Clients Say
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              A streamlined approach to deliver exceptional results every time
+              Don't just take our word for it - hear from our satisfied clients
             </p>
           </motion.div>
 
-          <div className="relative">
-            {/* Process Timeline Line - Mobile and Desktop */}
-            <div className="absolute left-8 lg:left-1/2 transform lg:-translate-x-1/2 h-full w-0.5 bg-gray-300"></div>
-            
-            <div className="space-y-12">
-              {process.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`flex flex-col lg:flex-row items-center gap-4 lg:gap-8 ${
-                    index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  }`}
-                >
-                  <div className="flex-1 w-full lg:w-auto">
-                    <div className={`bg-white p-6 lg:p-8 rounded-xl shadow-lg ml-12 lg:ml-0 ${
-                      index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'
-                    }`}>
-                      <div className={`flex items-center gap-4 mb-4 ${
-                        index % 2 === 0 ? 'lg:justify-end' : 'lg:justify-start'
-                      }`}>
-                        <step.icon className="w-6 h-6 lg:w-8 lg:h-8 text-brand-cyan" />
-                        <span className="text-3xl lg:text-4xl font-bold text-gray-200">{step.step}</span>
-                      </div>
-                      <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-sm lg:text-base text-gray-600">{step.description}</p>
-                    </div>
-                  </div>
-                  
-                  {/* Center Circle - Mobile and Desktop */}
-                  <div className="absolute left-8 lg:relative lg:left-auto flex items-center justify-center">
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-brand-darkest rounded-full flex items-center justify-center text-white text-sm lg:text-base font-bold shadow-lg">
-                      {index + 1}
-                    </div>
-                  </div>
-                  
-                  <div className="flex-1 hidden lg:block"></div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <TestimonialCardMotionCue
+                  name={testimonial.name}
+                  position={testimonial.position}
+                  company={testimonial.company}
+                  companyType={testimonial.company.includes("Startup") ? "Startup" : "Business"}
+                  image={testimonial.image}
+                  testimonial={testimonial.testimonial}
+                  linkedinUrl={testimonial.socials?.linkedin}
+                />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -565,34 +521,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Don&#39;t just take our word for it - hear from our satisfied clients
-            </p>
-          </motion.div>
-
-          <div className="space-y-8">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={testimonial.name}
-                {...testimonial}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">

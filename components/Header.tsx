@@ -6,13 +6,12 @@ import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const services = [
-  { title: "Video Editing & VFX Compositing", href: "/services/video-editing-vfx" },
-  { title: "Social Media Designs", href: "/services/social-media-designs" },
-  { title: "Motion Graphics", href: "/services/motion-graphics" },
-  { title: "2D Animation", href: "/services/2d-animation" },
-  { title: "3D Animation", href: "/services/3d-animation" },
-  { title: "Product Videos", href: "/services/product-videos" },
-  { title: "Testimonial Videos", href: "/services/testimonial-videos" },
+  { title: "Video Editing", href: "/services/video-editing-vfx" },
+  { title: "Social Media Ads & Reels", href: "/services/social-media-designs" },
+  { title: "Logo Animation", href: "/services/motion-graphics" },
+  { title: "Streaming Overlays", href: "/services/animation" },
+  { title: "2D Explainers", href: "/services/product-videos" },
+  { title: "Social Media Designs", href: "/services/testimonial-videos" },
 ];
 
 export default function Header() {
@@ -20,23 +19,23 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white z-[99999] shadow-lg w-full">
-      <div className="w-full px-4 sm:px-6 lg:px-[50px]">
-        <div className="flex items-center justify-between h-[80px] w-full">
+    <header className="fixed top-0 left-0 right-0 bg-white z-[99999] shadow-sm w-full">
+      <div className="w-full px-4 sm:px-6 lg:px-[50px] 2k:px-[80px]">
+        <div className="flex items-center justify-between h-[84px] w-full">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/assets/versmos-logo.svg"
               alt="Versmos"
-              width={165}
-              height={26}
-              className="h-8 w-auto"
+              width={180}
+              height={30}
+              className="h-10 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-12">
             {/* Services Dropdown */}
             <div 
               className="relative"
@@ -45,7 +44,7 @@ export default function Header() {
             >
               <Link
                 href="/services"
-                className="flex items-center gap-1 text-[14px] font-semibold text-gray-800 hover:opacity-70 transition-opacity"
+                className="flex items-center gap-1 text-[16px] font-medium text-gray-900 hover:text-brand-cyan transition-colors"
               >
                 Services
                 <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`} />
@@ -55,13 +54,13 @@ export default function Header() {
               {isServicesOpen && (
                 <>
                   {/* Invisible bridge to prevent gap */}
-                  <div className="absolute top-full left-0 w-64 h-2" />
+                  <div className="absolute top-full left-0 w-72 h-2" />
                   <div
-                    className="absolute top-full left-0 w-64 bg-white py-4 mt-2 shadow-lg rounded-lg"
+                    className="absolute top-full left-0 w-72 bg-white py-4 mt-2 shadow-lg rounded-md border border-gray-100"
                   >
                     <Link
                       href="/services"
-                      className="block px-5 py-3 text-[14px] font-semibold text-gray-700 hover:bg-gray-50 hover:text-brand-cyan transition-colors border-b border-gray-100"
+                      className="block px-6 py-3 text-[15px] font-semibold text-gray-900 hover:bg-gray-50 hover:text-brand-cyan transition-colors border-b border-gray-100"
                     >
                       All Services
                     </Link>
@@ -69,7 +68,7 @@ export default function Header() {
                       <Link
                         key={service.href}
                         href={service.href}
-                        className="block px-5 py-3 text-[14px] text-gray-700 hover:bg-gray-50 hover:text-brand-cyan transition-colors"
+                        className="block px-6 py-3 text-[15px] text-gray-700 hover:bg-gray-50 hover:text-brand-cyan transition-colors"
                         onClick={() => setIsServicesOpen(false)}
                       >
                         {service.title}
@@ -80,15 +79,15 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/portfolio" className="text-[14px] font-semibold text-gray-800 hover:opacity-70 transition-opacity">
+            <Link href="/portfolio" className="text-[16px] font-medium text-gray-900 hover:text-brand-cyan transition-colors">
               Portfolio
             </Link>
             
-            <Link href="/case-studies" className="text-[14px] font-semibold text-gray-800 hover:opacity-70 transition-opacity">
+            <Link href="/case-studies" className="text-[16px] font-medium text-gray-900 hover:text-brand-cyan transition-colors">
               Case Studies
             </Link>
             
-            <Link href="/about" className="text-[14px] font-semibold text-gray-800 hover:opacity-70 transition-opacity">
+            <Link href="/about" className="text-[16px] font-medium text-gray-900 hover:text-brand-cyan transition-colors">
               About
             </Link>
           </nav>
@@ -96,7 +95,7 @@ export default function Header() {
           {/* CTA Button */}
           <Link
             href="/get-a-quote"
-            className="hidden lg:inline-flex px-6 py-3 bg-brand-darkest text-white text-[14px] font-medium uppercase tracking-wider hover:bg-brand-cyan transition-colors"
+            className="hidden lg:inline-flex px-7 py-3.5 bg-brand-darkest text-white text-[15px] font-medium uppercase tracking-wider hover:bg-brand-cyan transition-colors rounded-sm"
           >
             Get a Quote
           </Link>
