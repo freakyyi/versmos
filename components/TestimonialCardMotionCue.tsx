@@ -27,7 +27,7 @@ export default function TestimonialCardMotionCue({
     <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
       {/* Testimonial Text */}
       <p className="text-gray-700 text-lg leading-relaxed mb-6">
-        "{testimonial}"
+        &quot;{testimonial}&quot;
       </p>
       
       {/* Client Info */}

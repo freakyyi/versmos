@@ -138,8 +138,8 @@ export default function PortfolioPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-40 pb-16">
-        <div className="container mx-auto px-6 lg:px-12">
+      <div className="min-h-screen pb-16">
+        <div className="container mx-auto px-6 lg:px-12 pt-20">
           <div className="animate-pulse">
             <div className="h-10 bg-gray-200 rounded w-1/4 mb-4"></div>
             <div className="h-6 bg-gray-200 rounded w-1/3 mb-8"></div>
@@ -156,7 +156,7 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <main className="min-h-screen pt-40 pb-16">
+      <main className="min-h-screen pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 fhd:px-20 max-w-10xl">
           {/* Page Header */}
           <motion.div

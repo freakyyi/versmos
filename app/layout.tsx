@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, Caveat } from "next/font/google";
 import "./globals.css";
 import "./custom.css";
 
@@ -7,6 +7,13 @@ const manrope = Manrope({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-manrope",
+  display: "swap",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-caveat",
   display: "swap",
 });
 
@@ -34,9 +41,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${manrope.variable} ${caveat.variable} antialiased`} suppressHydrationWarning>
         <Header />
-        <main className="w-full">
+        <main className="w-full pt-[120px]">
           {children}
         </main>
         <Footer />

@@ -88,7 +88,7 @@ export default function CaseStudiesPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-40 pb-16">
+      <div className="min-h-screen pb-16">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="animate-pulse">
             <div className="h-10 bg-gray-200 rounded w-1/4 mb-4"></div>
@@ -106,7 +106,7 @@ export default function CaseStudiesPage() {
 
   return (
     <>
-      <main className="min-h-screen pt-40 pb-16">
+      <main className="min-h-screen pb-16">
         <div className="container mx-auto px-6 lg:px-12">
           {/* Page Header */}
           <motion.div

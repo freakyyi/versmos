@@ -9,25 +9,25 @@ const teamMembers = [
   {
     name: "Ahmed Khan",
     role: "Creative Director",
-    image: "/api/placeholder/300/300",
+    image: "/assets/generated/team-creative-director.jpg",
     bio: "15+ years in video production and creative storytelling",
   },
   {
     name: "Sarah Johnson",
     role: "Lead Animator",
-    image: "/api/placeholder/300/300",
+    image: "/assets/generated/team-lead-animator.jpg",
     bio: "Expert in 2D/3D animation with a passion for visual effects",
   },
   {
     name: "Mike Chen",
-    role: "VFX Supervisor",
-    image: "/api/placeholder/300/300",
+    role: "Motion Designer",
+    image: "/assets/generated/team-motion-designer.jpg",
     bio: "Specializes in compositing and motion graphics",
   },
   {
     name: "Lisa Rodriguez",
-    role: "Project Manager",
-    image: "/api/placeholder/300/300",
+    role: "Video Editor",
+    image: "/assets/generated/team-video-editor.jpg",
     bio: "Ensuring smooth delivery and client satisfaction",
   },
 ];
@@ -159,7 +159,7 @@ export default function AboutPage() {
               className="relative"
             >
               <Image
-                src="/api/placeholder/600/400"
+                src="/assets/generated/versmos-office.jpg"
                 alt="Versmos Team"
                 width={600}
                 height={400}

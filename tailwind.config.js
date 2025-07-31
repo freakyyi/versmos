@@ -50,6 +50,7 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-manrope)', 'system-ui', '-apple-system', 'sans-serif'],
         heading: ['var(--font-manrope)', 'system-ui', '-apple-system', 'sans-serif'],
+        handwriting: ['var(--font-caveat)', 'cursive', 'system-ui'],
       },
       height: {
         header: '84px',

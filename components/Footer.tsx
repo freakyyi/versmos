@@ -6,12 +6,7 @@ import {
   Twitter, 
   Instagram, 
   Linkedin, 
-  Youtube,
-  Mail,
-  Phone,
-  MapPin,
-  ArrowRight,
-  Clock
+  Youtube
 } from "lucide-react";
 
 export default function Footer() {
@@ -60,33 +55,21 @@ export default function Footer() {
 
   return (
     <footer className="bg-brand-darkest text-white">
-      {/* Newsletter Section */}
-      <div className="border-b border-white/10">
-        <div className="container mx-auto px-6 lg:px-12 py-12">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-              <p className="text-gray-300">
-                Get the latest updates on video marketing trends and exclusive offers
-              </p>
-            </div>
-            <div>
-              <form className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-brand-cyan transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-brand-cyan text-white font-semibold rounded-lg hover:bg-brand-cyan/90 transform hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
-                >
-                  Subscribe
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </button>
-              </form>
-            </div>
-          </div>
+      {/* CTA Section */}
+      <div className="bg-brand-cyan">
+        <div className="container mx-auto px-6 lg:px-12 py-16 text-center">
+          <h3 className="text-3xl font-bold mb-4 text-white">Ready to win with video?</h3>
+          <p className="text-xl text-white/90 mb-8">
+            Set up a free 30-minute strategy session with our team.
+          </p>
+          <Link
+            href="https://calendly.com/versmos/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 bg-white text-brand-darkest hover:bg-gray-100 font-semibold uppercase tracking-wider rounded-sm transform hover:scale-105 transition-all duration-300"
+          >
+            SCHEDULE A CALL
+          </Link>
         </div>
       </div>
 
@@ -176,63 +159,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Legal */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-brand-cyan flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm">
-                  Plaza No. 9, Shop No. 4, 1st Floor, Business District, Phase 8 Bahria Town, Rawalpindi
-                </span>
-              </li>
-              <li>
-                <a 
-                  href="tel:+923001234567" 
-                  className="flex items-center gap-3 text-gray-300 hover:text-brand-cyan transition-colors duration-300"
-                >
-                  <Phone className="w-5 h-5 text-brand-cyan" />
-                  <span className="text-sm">+92 300 1234567</span>
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="mailto:info@versmos.com" 
-                  className="flex items-center gap-3 text-gray-300 hover:text-brand-cyan transition-colors duration-300"
-                >
-                  <Mail className="w-5 h-5 text-brand-cyan" />
-                  <span className="text-sm">info@versmos.com</span>
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-brand-cyan" />
-                <span className="text-gray-300 text-sm">Mon - Fri: 9:00 AM - 6:00 PM</span>
-              </li>
+            <h4 className="font-bold text-lg mb-4">Legal</h4>
+            <ul className="space-y-2">
+              {footerLinks.legal.map((link) => (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href}
+                    className="text-gray-300 hover:text-brand-cyan transition-colors duration-300 text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Trust Badges */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <div className="flex flex-wrap items-center justify-center gap-8 mb-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-brand-cyan">500+</div>
-              <div className="text-sm text-gray-400">Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-brand-cyan">200+</div>
-              <div className="text-sm text-gray-400">Happy Clients</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-brand-cyan">5+</div>
-              <div className="text-sm text-gray-400">Years Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-brand-cyan">24/7</div>
-              <div className="text-sm text-gray-400">Support Available</div>
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* Bottom Bar */}

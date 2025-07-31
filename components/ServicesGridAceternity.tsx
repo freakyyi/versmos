@@ -16,52 +16,52 @@ import Link from "next/link";
 export function ServicesGridAceternity() {
   const services = [
     {
-      title: "Video Editing & VFX",
-      description: "Professional video editing with stunning visual effects that captivate your audience.",
-      icon: <Video className="w-6 h-6" />,
-      href: "/services/video-editing-vfx",
+      title: "Long-form Content Video Edits",
+      description: "Professional editing for documentaries, podcasts, and long-form content.",
+      icon: <Film className="w-6 h-6" />,
+      href: "/services/long-form-content",
     },
     {
-      title: "Motion Graphics",
-      description: "Eye-catching animations that bring your ideas to life with dynamic movement.",
+      title: "Social Media Post Animations",
+      description: "Eye-catching animations designed to boost engagement on social platforms.",
+      icon: <Share2 className="w-6 h-6" />,
+      href: "/services/social-media-animations",
+    },
+    {
+      title: "VFX & Compositing",
+      description: "Professional visual effects and compositing for stunning video content.",
+      icon: <Wand2 className="w-6 h-6" />,
+      href: "/services/vfx-compositing",
+    },
+    {
+      title: "Streaming Essentials",
+      description: "Custom overlays and graphics for Twitch, Kick, and Facebook streamers.",
+      icon: <Monitor className="w-6 h-6" />,
+      href: "/services/streaming-essentials",
+    },
+    {
+      title: "Facebook Video Ads",
+      description: "High-converting video ads optimized for Facebook and social platforms.",
+      icon: <Video className="w-6 h-6" />,
+      href: "/services/facebook-video-ads",
+    },
+    {
+      title: "2D Explainers / Motion Graphics",
+      description: "Engaging explainer videos and motion graphics that simplify complex ideas.",
       icon: <Sparkles className="w-6 h-6" />,
       href: "/services/motion-graphics",
     },
     {
-      title: "2D Animation",
-      description: "Custom 2D animations for explainers, characters, and storytelling.",
+      title: "Logo Animations",
+      description: "Transform your static logo into a dynamic brand experience.",
       icon: <Palette className="w-6 h-6" />,
-      href: "/services/2d-animation",
+      href: "/services/logo-animations",
     },
     {
-      title: "3D Animation",
-      description: "Immersive 3D animations and modeling for products and visual effects.",
-      icon: <Wand2 className="w-6 h-6" />,
-      href: "/services/3d-animation",
-    },
-    {
-      title: "Social Media Designs",
-      description: "Engaging content optimized for all social platforms to maximize reach.",
-      icon: <Share2 className="w-6 h-6" />,
-      href: "/services/social-media-designs",
-    },
-    {
-      title: "Product Videos",
-      description: "Showcase your products with compelling videos that drive conversions.",
-      icon: <Monitor className="w-6 h-6" />,
-      href: "/services/product-videos",
-    },
-    {
-      title: "Testimonial Videos",
-      description: "Build trust with authentic testimonial videos and client success stories.",
+      title: "Testimonial & Social Reels",
+      description: "Authentic testimonials and viral-ready content for YouTube Shorts, Instagram & TikTok.",
       icon: <MessageSquare className="w-6 h-6" />,
-      href: "/services/testimonial-videos",
-    },
-    {
-      title: "Showreels & Portfolios",
-      description: "Create stunning showreels that showcase your best work professionally.",
-      icon: <Film className="w-6 h-6" />,
-      href: "/portfolio",
+      href: "/services/testimonial-social-reels",
     },
   ];
 

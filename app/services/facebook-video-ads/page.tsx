@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Zap, TrendingUp, Eye, Layers3 } from "lucide-react";
+import { ArrowRight, Target, TrendingUp, DollarSign, Users } from "lucide-react";
 import ServiceVideos from "@/components/ServiceVideos";
 import VideoModal from "@/components/VideoModal";
 import { createClient } from "@/lib/supabase/client";
@@ -18,7 +18,7 @@ interface Video {
   view_count: number;
 }
 
-export default function MotionGraphicsPage() {
+export default function FacebookVideoAdsPage() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
   const [loading, setLoading] = useState(true);
@@ -39,7 +39,7 @@ export default function MotionGraphicsPage() {
             view_count,
             youtube_playlists!inner(title)
           `)
-          .eq('youtube_playlists.title', '2D Explainers / Motion Graphics')
+          .eq('youtube_playlists.title', 'Facebook Service/Product Video Ads')
           .order('published_at', { ascending: false });
 
         if (error) throw error;
@@ -56,36 +56,48 @@ export default function MotionGraphicsPage() {
 
   const benefits = [
     {
-      icon: Zap,
-      title: "Dynamic Typography",
-      description: "Eye-catching animated text that delivers your message with impact"
+      icon: Target,
+      title: "Targeted Messaging",
+      description: "Ads crafted to resonate with your specific Facebook audience"
     },
     {
       icon: TrendingUp,
-      title: "Data Visualization",
-      description: "Transform complex data into engaging visual stories"
+      title: "Higher Conversions",
+      description: "Video ads that drive clicks, leads, and sales"
     },
     {
-      icon: Eye,
-      title: "Brand Recognition",
-      description: "Memorable animations that enhance brand recall"
+      icon: DollarSign,
+      title: "ROI Focused",
+      description: "Designed to maximize your advertising spend effectiveness"
     },
     {
-      icon: Layers3,
-      title: "Infographics",
-      description: "Animated infographics that educate and entertain"
+      icon: Users,
+      title: "Audience Engagement",
+      description: "Compelling content that stops the scroll and captures attention"
     }
   ];
 
-  const motionTypes = [
-    "2D Character Animation",
-    "Kinetic Typography",
-    "Animated Infographics",
-    "Explainer Videos",
-    "Icon Animations",
-    "Product Demonstrations",
-    "Educational Content",
-    "Corporate Presentations"
+  const adFormats = [
+    {
+      format: "Feed Videos",
+      specs: "4:5 or 1:1 ratio, 15-60 seconds",
+      best: "Product showcases, brand stories"
+    },
+    {
+      format: "Stories Ads",
+      specs: "9:16 vertical, 5-15 seconds",
+      best: "Quick promotions, flash sales"
+    },
+    {
+      format: "Reels Ads",
+      specs: "9:16 vertical, up to 60 seconds",
+      best: "Entertaining, trend-based content"
+    },
+    {
+      format: "Collection Ads",
+      specs: "Multiple products, instant experience",
+      best: "E-commerce, product catalogs"
+    }
   ];
 
   return (
@@ -100,25 +112,25 @@ export default function MotionGraphicsPage() {
               className="max-w-4xl mx-auto text-center"
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                2D Explainers / <span className="text-brand-cyan">Motion Graphics</span>
+                Facebook Service/Product <span className="text-brand-cyan">Video Ads</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Elevate your content with stunning motion graphics and explainer animations. 
-                We create visually striking animations that capture attention and communicate complex ideas simply.
+                High-converting Facebook video ads that showcase your products and services. 
+                Drive sales with compelling visual storytelling optimized for the Facebook platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 bg-brand-darkest text-white font-semibold rounded-sm hover:bg-brand-cyan transition-all duration-300"
                 >
-                  Start Your Animation
+                  Create Your Video Ad
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
                 <Link
                   href="/portfolio"
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-sm hover:border-brand-cyan hover:text-brand-cyan transition-all duration-300"
                 >
-                  View Examples
+                  View Ad Examples
                 </Link>
               </div>
             </motion.div>
@@ -135,10 +147,10 @@ export default function MotionGraphicsPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Motion Graphics?
+                Facebook Ads That Convert
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Engage your audience with dynamic visual storytelling
+                Strategic video content designed for Facebook&apos;s unique audience and algorithms
               </p>
             </motion.div>
 
@@ -173,10 +185,10 @@ export default function MotionGraphicsPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Motion Graphics Portfolio
+                Facebook Video Ad Portfolio
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore our collection of explainer videos and motion graphics
+                Successful video ad campaigns we&apos;ve created for businesses
               </p>
             </motion.div>
 
@@ -210,7 +222,7 @@ export default function MotionGraphicsPage() {
           </div>
         </section>
 
-        {/* Motion Types Section */}
+        {/* Ad Formats Section */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <motion.div
@@ -220,97 +232,32 @@ export default function MotionGraphicsPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Types of Motion Graphics We Create
+                Facebook Ad Formats We Create
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From simple animations to complex explainer videos
+                Optimized for every placement and objective
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {motionTypes.map((type, index) => (
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {adFormats.map((format, index) => (
                 <motion.div
-                  key={type}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={format.format}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                  className="bg-white p-8 rounded-xl shadow-lg"
                 >
-                  <CheckCircle className="w-6 h-6 text-green-500 mb-3" />
-                  <h3 className="text-lg font-semibold text-gray-900">{type}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{format.format}</h3>
+                  <p className="text-gray-600 mb-2">
+                    <span className="font-semibold">Specs:</span> {format.specs}
+                  </p>
+                  <p className="text-gray-600">
+                    <span className="font-semibold">Best for:</span> {format.best}
+                  </p>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-6 lg:px-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Our Animation Process
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From concept to final animation
-              </p>
-            </motion.div>
-
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-4xl font-bold text-brand-cyan mb-4">01</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Script & Storyboard</h3>
-                  <p className="text-gray-600">We develop a compelling script and visual storyboard that aligns with your goals</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-4xl font-bold text-brand-cyan mb-4">02</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Design & Illustration</h3>
-                  <p className="text-gray-600">Create custom illustrations and design elements that match your brand</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-4xl font-bold text-brand-cyan mb-4">03</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Animation & Effects</h3>
-                  <p className="text-gray-600">Bring everything to life with smooth animations and engaging effects</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-4xl font-bold text-brand-cyan mb-4">04</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Sound & Polish</h3>
-                  <p className="text-gray-600">Add music, sound effects, and final touches for a professional finish</p>
-                </motion.div>
-              </div>
             </div>
           </div>
         </section>
@@ -324,16 +271,16 @@ export default function MotionGraphicsPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Ready to Animate Your Ideas?
+                Ready to Boost Your Facebook Sales?
               </h2>
               <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-                Let&apos;s create motion graphics that engage and inspire your audience
+                Let&apos;s create video ads that convert viewers into customers
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-brand-cyan text-white font-semibold rounded-sm hover:bg-brand-cyan/90 transition-all duration-300"
               >
-                Start Your Project
+                Start Your Campaign
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </motion.div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Zap, TrendingUp, Eye, Layers3 } from "lucide-react";
+import { ArrowRight, MessageSquare, Smartphone, Play, Heart } from "lucide-react";
 import ServiceVideos from "@/components/ServiceVideos";
 import VideoModal from "@/components/VideoModal";
 import { createClient } from "@/lib/supabase/client";
@@ -18,7 +18,7 @@ interface Video {
   view_count: number;
 }
 
-export default function MotionGraphicsPage() {
+export default function TestimonialSocialReelsPage() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
   const [loading, setLoading] = useState(true);
@@ -39,7 +39,7 @@ export default function MotionGraphicsPage() {
             view_count,
             youtube_playlists!inner(title)
           `)
-          .eq('youtube_playlists.title', '2D Explainers / Motion Graphics')
+          .eq('youtube_playlists.title', 'Testimonial Edits, YouTube Shorts, Instagram & Tiktok Reels')
           .order('published_at', { ascending: false });
 
         if (error) throw error;
@@ -56,36 +56,48 @@ export default function MotionGraphicsPage() {
 
   const benefits = [
     {
-      icon: Zap,
-      title: "Dynamic Typography",
-      description: "Eye-catching animated text that delivers your message with impact"
+      icon: MessageSquare,
+      title: "Authentic Stories",
+      description: "Transform customer testimonials into compelling social proof"
     },
     {
-      icon: TrendingUp,
-      title: "Data Visualization",
-      description: "Transform complex data into engaging visual stories"
+      icon: Smartphone,
+      title: "Platform Optimized",
+      description: "Perfect for YouTube Shorts, Instagram Reels, and TikTok"
     },
     {
-      icon: Eye,
-      title: "Brand Recognition",
-      description: "Memorable animations that enhance brand recall"
+      icon: Play,
+      title: "Viral-Ready Content",
+      description: "Engaging edits designed to maximize views and shares"
     },
     {
-      icon: Layers3,
-      title: "Infographics",
-      description: "Animated infographics that educate and entertain"
+      icon: Heart,
+      title: "Build Trust",
+      description: "Social proof that converts viewers into customers"
     }
   ];
 
-  const motionTypes = [
-    "2D Character Animation",
-    "Kinetic Typography",
-    "Animated Infographics",
-    "Explainer Videos",
-    "Icon Animations",
-    "Product Demonstrations",
-    "Educational Content",
-    "Corporate Presentations"
+  const contentTypes = [
+    {
+      type: "Customer Testimonials",
+      description: "Professional edits that highlight your best reviews",
+      duration: "30-60 seconds"
+    },
+    {
+      type: "YouTube Shorts",
+      description: "Vertical content optimized for YouTube's algorithm",
+      duration: "Up to 60 seconds"
+    },
+    {
+      type: "Instagram Reels",
+      description: "Trendy, engaging content for Instagram discovery",
+      duration: "15-90 seconds"
+    },
+    {
+      type: "TikTok Videos",
+      description: "Native-feeling content that resonates with TikTok users",
+      duration: "15-60 seconds"
+    }
   ];
 
   return (
@@ -100,18 +112,18 @@ export default function MotionGraphicsPage() {
               className="max-w-4xl mx-auto text-center"
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                2D Explainers / <span className="text-brand-cyan">Motion Graphics</span>
+                Testimonial Edits & <span className="text-brand-cyan">Social Reels</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Elevate your content with stunning motion graphics and explainer animations. 
-                We create visually striking animations that capture attention and communicate complex ideas simply.
+                Transform testimonials into powerful social proof. Create viral-ready YouTube Shorts, 
+                Instagram Reels, and TikTok content that builds trust and drives engagement.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center px-8 py-4 bg-brand-darkest text-white font-semibold rounded-sm hover:bg-brand-cyan transition-all duration-300"
                 >
-                  Start Your Animation
+                  Create Your Social Content
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
                 <Link
@@ -135,10 +147,10 @@ export default function MotionGraphicsPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Why Choose Motion Graphics?
+                Social Proof That Converts
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Engage your audience with dynamic visual storytelling
+                Turn customer testimonials into engaging social content
               </p>
             </motion.div>
 
@@ -173,10 +185,10 @@ export default function MotionGraphicsPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Motion Graphics Portfolio
+                Testimonial & Social Content Portfolio
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore our collection of explainer videos and motion graphics
+                Customer stories and viral content we&apos;ve created
               </p>
             </motion.div>
 
@@ -210,7 +222,7 @@ export default function MotionGraphicsPage() {
           </div>
         </section>
 
-        {/* Motion Types Section */}
+        {/* Content Types Section */}
         <section className="py-20">
           <div className="container mx-auto px-6 lg:px-12">
             <motion.div
@@ -220,25 +232,28 @@ export default function MotionGraphicsPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Types of Motion Graphics We Create
+                Content We Create
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From simple animations to complex explainer videos
+                From testimonials to viral social content
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {motionTypes.map((type, index) => (
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {contentTypes.map((content, index) => (
                 <motion.div
-                  key={type}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={content.type}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  <CheckCircle className="w-6 h-6 text-green-500 mb-3" />
-                  <h3 className="text-lg font-semibold text-gray-900">{type}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{content.type}</h3>
+                  <p className="text-gray-600 mb-2">{content.description}</p>
+                  <p className="text-sm text-gray-500">
+                    <span className="font-semibold">Duration:</span> {content.duration}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -255,62 +270,54 @@ export default function MotionGraphicsPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Our Animation Process
+                Our Process
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                From concept to final animation
+                From raw footage to viral content
               </p>
             </motion.div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-4xl font-bold text-brand-cyan mb-4">01</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Script & Storyboard</h3>
-                  <p className="text-gray-600">We develop a compelling script and visual storyboard that aligns with your goals</p>
-                </motion.div>
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 bg-brand-cyan text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  1
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Content Review</h3>
+                <p className="text-gray-600">We analyze your testimonials and brand to create a content strategy</p>
+              </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-4xl font-bold text-brand-cyan mb-4">02</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Design & Illustration</h3>
-                  <p className="text-gray-600">Create custom illustrations and design elements that match your brand</p>
-                </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 bg-brand-cyan text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  2
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Creative Editing</h3>
+                <p className="text-gray-600">Add music, captions, effects, and transitions for maximum impact</p>
+              </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-4xl font-bold text-brand-cyan mb-4">03</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Animation & Effects</h3>
-                  <p className="text-gray-600">Bring everything to life with smooth animations and engaging effects</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  className="bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-4xl font-bold text-brand-cyan mb-4">04</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Sound & Polish</h3>
-                  <p className="text-gray-600">Add music, sound effects, and final touches for a professional finish</p>
-                </motion.div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 bg-brand-cyan text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  3
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Platform Optimization</h3>
+                <p className="text-gray-600">Export in perfect formats for each social platform</p>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -324,16 +331,16 @@ export default function MotionGraphicsPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Ready to Animate Your Ideas?
+                Ready to Go Viral?
               </h2>
               <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-                Let&apos;s create motion graphics that engage and inspire your audience
+                Let&apos;s transform your testimonials into engaging social content
               </p>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-brand-cyan text-white font-semibold rounded-sm hover:bg-brand-cyan/90 transition-all duration-300"
               >
-                Start Your Project
+                Start Creating Content
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </motion.div>

@@ -6,12 +6,14 @@ import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const services = [
-  { title: "Video Editing", href: "/services/video-editing-vfx" },
-  { title: "Social Media Ads & Reels", href: "/services/social-media-designs" },
-  { title: "Logo Animation", href: "/services/motion-graphics" },
-  { title: "Streaming Overlays", href: "/services/animation" },
-  { title: "2D Explainers", href: "/services/product-videos" },
-  { title: "Social Media Designs", href: "/services/testimonial-videos" },
+  { title: "Long-form Content Video Edits", href: "/services/long-form-content" },
+  { title: "Social Media Post Animations", href: "/services/social-media-animations" },
+  { title: "VFX & Compositing", href: "/services/vfx-compositing" },
+  { title: "Streaming Essentials", href: "/services/streaming-essentials" },
+  { title: "Facebook Video Ads", href: "/services/facebook-video-ads" },
+  { title: "2D Explainers / Motion Graphics", href: "/services/motion-graphics" },
+  { title: "Logo Animations", href: "/services/logo-animations" },
+  { title: "Testimonial & Social Reels", href: "/services/testimonial-social-reels" },
 ];
 
 export default function Header() {
