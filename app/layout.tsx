@@ -43,7 +43,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${manrope.variable} ${caveat.variable} antialiased`} suppressHydrationWarning>
         <Header />
-        <main className="w-full pt-[120px]">
+        {/* Spacer for fixed header */}
+        <div className="h-[84px] w-full" aria-hidden="true" />
+        <main className="w-full">
           {children}
         </main>
         <Footer />
